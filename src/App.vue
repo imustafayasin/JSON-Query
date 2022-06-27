@@ -1,16 +1,15 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+<template lang="pug">
+.grid
+  .g-col-6.border  Col 1
+  .g-col-6.border Col 2
+
+  .g-col-6.border Col 3
+  .g-col-6.border Col 4
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
 };
 </script>
 
@@ -21,6 +20,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.grid {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  div {
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
 }
 </style>
