@@ -1,0 +1,12 @@
+---- Todos
+
+
+[] Add vscode code editor 
+
+[] Edit design and notifications,error handling, security
+
+[] Testing
+
+[] Deployment and docker
+
+[] Maintain and understanable code & folder structure

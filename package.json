@@ -12,6 +12,8 @@
   "dependencies": {
     "bootstrap": "^5.2.0-beta1",
     "core-js": "^3.8.3",
+    "monaco-editor": "^0.33.0",
+    "monaco-editor-webpack-plugin": "^7.0.1",
     "pug-plain-loader": "^1.1.0",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
