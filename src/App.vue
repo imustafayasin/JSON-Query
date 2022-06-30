@@ -57,7 +57,6 @@ body {
   gap: 20px;
 
   .g-col-6 {
-
     .editor {
       width: 100%;
       min-height: 350px;
