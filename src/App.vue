@@ -2,37 +2,26 @@
 .grid
   .g-col-6
     h4(class="ms-2 my-2") Input
-    .editor(ref="input" data-placeholder="\n //Add Json Here :)")
+    CodeEditor(elem="editorinput" theme="vs-light" language="json") 
   .g-col-6
     h4(class="ms-2 my-2") Query
-    .editor(ref="query" data-placeholder="//You can use your json as input \ninput")
+    CodeEditor(elem="editor_query" language="javascript")
 
   .g-col-6
     h4(class="ms-2 my-2") Output
-    .editor(ref="output" )
+    CodeEditor(elem="editor_output")
   .g-col-6
     h4(class="ms-2 my-2") Setting
     .settings.p-3 setting
+   
 </template>
 
 <script>
-import * as monaco from "monaco-editor";
-
+import CodeEditor from "@/components/CodeEditor";
 export default {
   name: "App",
-  mounted() {
-    console.log(Object.entries(this.$refs));
-    for (let editor_element of Object.values(this.$refs)) {
-      monaco.editor.create(editor_element, {
-        value: `${editor_element.dataset.placeholder}`,
-        language: "javascript",
-        lineNumbers: "on",
-        roundedSelection: false,
-        scrollBeyondLastLine: false,
-        readOnly: false,
-        theme: "vs-dark",
-      });
-    }
+  components: {
+    CodeEditor,
   },
 };
 </script>
