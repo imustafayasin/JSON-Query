@@ -22,10 +22,6 @@
       .form-check.form-check-inline
         input#inlineRadio3.form-check-input(type='radio' @input="setTheme('hc-black')" name='inlineRadioOptions' value='option3')
         label.form-check-label(for='inlineRadio3') High contrast
-
-
-
-   
 </template>
 
 <script>
