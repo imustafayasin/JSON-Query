@@ -1,15 +1,15 @@
 <template lang="pug">
 .grid
   .g-col-6
-    h4(class="ms-2 my-2") Input
-    CodeEditor(elem="editor_input"  @onchange="handleQuery" theme="vs-light" language="json") 
+    h4(class="ms-2 my-2") Input(JSON)
+    CodeEditor(elem="editor_input" :value="default_values.input" @onChange="handleQuery" theme="vs-light" language="json") 
   .g-col-6
     h4(class="ms-2 my-2") Query
-    CodeEditor(elem="editor_query" @onchange="handleQuery" language="javascript")
+    CodeEditor(elem="editor_query" :value="default_values.query" @onChange="handleQuery" language="javascript")
 
   .g-col-6
     h4(class="ms-2 my-2") Output
-    CodeEditor(elem="editor_output" language="json")
+    CodeEditor(elem="editor_output" :value='default_values.output' language="json")
   .g-col-6
     h4(class="ms-2 my-2") Setting
     .settings.p-3 setting
@@ -24,14 +24,23 @@ export default {
   components: {
     CodeEditor,
   },
+  data() {
+    return {
+      default_values: {
+        input: JSON.stringify({ "message": "Add your json code" }, null, 2),
+        query: "// You can use input variable like : input.map(item => item.price), input.message etc. \ninput",
+        output: "Your changes will be displayed here"
+      }
+    }
+  },
   methods: {
     handleQuery() {
       try {
         var input = JSON.parse(window.editor_input.getValue());
         window.editor_output.setValue(JSON.stringify(eval(window.editor_query.getValue())))
-        window.editor_output.getAction('editor.action.formatDocument').run()
       }
       catch (err) {
+        window.editor_output.setValue(err.toString())
       }
 
     }
@@ -66,7 +75,8 @@ body {
   .g-col-6 {
     .editor {
       width: 100%;
-      min-height: 350px;
+
+      min-height: 40vh;
 
       .monaco-editor {
         width: 100% !important;
