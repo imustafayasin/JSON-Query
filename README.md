@@ -1,4 +1,4 @@
-# json-query
+# JSON Query Tool
 
 ## Project setup
 ```
