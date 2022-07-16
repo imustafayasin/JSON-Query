@@ -9,10 +9,7 @@ import * as monaco from "monaco-editor";
 export default {
     name: "CodeEditor",
     props: {
-        theme: {
-            type: String,
-            default: 'vs-dark'
-        },
+        theme: String,
         value: String,
         language: String,
         elem: String
@@ -30,7 +27,7 @@ export default {
             formatOnPaste: true,
             formatOnType: true
         });
-        
+
         window[this.elem].getModel().onDidChangeContent(_ => this.$emit("onChange"));
     },
 } 
