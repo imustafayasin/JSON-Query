@@ -35,14 +35,15 @@ export default {
   data() {
     return {
       settings: {
-        darkMode: true
+        darkMode: true,
       },
       default_values: {
-        input: JSON.stringify({ "message": "Add your json code" }, null, 2),
-        query: "// You can use input variable like : input.map(item => item.price), input.message etc. \ninput",
-        output: '"Your changes will be displayed here"'
-      }
-    }
+        input: JSON.stringify({ message: "Add your json code" }, null, 2),
+        query:
+          "// You can use input variable like : input.map(item => item.price), input.message etc. \ninput",
+        output: '"Your changes will be displayed here"',
+      },
+    };
   },
   methods: {
     setTheme(theme) {
@@ -51,14 +52,16 @@ export default {
     handleQuery() {
       try {
         var input = JSON.parse(window.editor_input.getValue());
-        window.editor_output.setValue(JSON.stringify(eval(window.editor_query.getValue())))
+        window.editor_output.setValue(
+          JSON.stringify(eval(window.editor_query.getValue()))
+        );
+        editor_input.getAction("editor.action.formatDocument").run();
+        editor_output.getAction("editor.action.formatDocument").run();
+      } catch (err) {
+        window.editor_output.setValue(err.toString());
       }
-      catch (err) {
-        window.editor_output.setValue(err.toString())
-      }
-
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -81,10 +84,9 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 
-  @media(max-width:920px) {
-    grid-template-columns: 1fr
+  @media (max-width: 920px) {
+    grid-template-columns: 1fr;
   }
-
 
   .g-col-6 {
     .editor {

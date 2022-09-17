@@ -1,5 +1,5 @@
 {
-  "name": "json-query",
+  "name": "y",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -68,5 +68,20 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "description": "```\r npm install\r ```",
+  "main": "babel.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imustafayasin/JSON-Query.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imustafayasin/JSON-Query/issues"
+  },
+  "homepage": "https://github.com/imustafayasin/JSON-Query#readme"
 }
